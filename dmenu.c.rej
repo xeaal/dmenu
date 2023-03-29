@@ -1,0 +1,11 @@
+--- dmenu.c
++++ dmenu.c
+@@ -566,7 +598,7 @@ readstdin(void)
+ 			*p = '\0';
+ 		if (!(items[i].text = strdup(buf)))
+ 			die("cannot strdup %u bytes:", strlen(buf) + 1);
+-		items[i].out = 0;
++		items[i].id = i; /* for multiselect */
+ 		drw_font_getexts(drw->fonts, buf, strlen(buf), &tmpmax, NULL);
+ 		if (tmpmax > inputw) {
+ 			inputw = tmpmax;
